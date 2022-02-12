@@ -32,7 +32,7 @@ const GlobalState = (props) => {
       for (let item of listaPokemon){
           axios
           .get(`${item.url}`) 
-          .then((res) => { 
+          .then((res) => {
               novaLista.push(res.data);
               if(novaLista.length === 20){
                   const ordenarLista = novaLista.sort((a, b) => {

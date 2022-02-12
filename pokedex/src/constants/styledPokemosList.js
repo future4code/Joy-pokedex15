@@ -12,6 +12,7 @@ export const CardList = styled.div`
 export const Botoes = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
+    cursor: pointer;
 `
 
 export const ImgContainer = styled.div`
@@ -32,11 +33,12 @@ export const ContainerLista = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 10px 46px;
+    
 `
 
 export const Header = styled.div`
-    height: 10vh;
-    background: #30a7d7;
+    height: 14vh;
+    background: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,4 +48,8 @@ export const Header = styled.div`
 export const BotaoHeader = styled.button`
     position: absolute;
     left: 76px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 7px;
+    height: 30px;
 `

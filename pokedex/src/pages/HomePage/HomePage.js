@@ -10,6 +10,7 @@ import {
 } from "../../constants/styledPokemosList";
 import GlobalEstadoContext from "../../global/GlobalEstadoContext";
 import { useHistory } from "react-router-dom";
+import  logoPokemon  from  "../../images/logoPokemon.png";
 
 
 const HomePage = () => {
@@ -58,7 +59,7 @@ const HomePage = () => {
         <>
             <Header>
                 <BotaoHeader onClick={()=> goPokedex()}>Ir para poédex</BotaoHeader>
-                <h1>Lista de Pokémons</h1>
+                <img src={logoPokemon} width={160}/>
             </Header>
             <ContainerLista>
 
