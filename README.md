@@ -1,14 +1,14 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
+- Victor Fernando dos Santos
 - Pessoa 2
 - Pessoa 3
 
-Link do Surge: www.link.com.br
+Link do Surge: https://endurable-bushes.surge.sh/
 
 O que funciona:
-- Item 1
+- Adicionar a pokédex
 - Item 2
 
 O que não funciona: 
