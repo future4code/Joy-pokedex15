@@ -5,46 +5,46 @@ import GlobalEstadoContext from "./GlobalEstadoContext";
 
 const GlobalState = (props) => {
     
-    const [listaPokemon, setListaPokemon] = useState([])
-    const [pokemons, setPokemons] = useState([])
-    const [pokedex, setPokedex] = useState([])
+  const [listaPokemon, setListaPokemon] = useState([]);
+  const [pokemons, setPokemons] = useState([]);
+  const [pokedex, setPokedex] = useState([]);
+  const [pokeDetails, setPokeDetails] = useState([]);
 
+  const pegaPokemons = () => {
 
-    const pegaPokemons = () => {
+      axios
+      .get(`${BASE_URL}/pokemon?limit=20`)
+      .then(res => setListaPokemon(res.data.results))
+      .catch(err => alert(err.message))
+  }
+  
 
+  useEffect(() =>{
+
+      pegaPokemons();
+
+      
+  },[])
+
+  useEffect(() =>{
+
+    const novaLista = []
+    for (let item of listaPokemon){
         axios
-        .get(`${BASE_URL}/pokemon?limit=20`)
-        .then(res => setListaPokemon(res.data.results))
+        .get(`${item.url}`) 
+        .then((res) => {
+            novaLista.push(res.data);
+            if(novaLista.length === 20){
+                const ordenarLista = novaLista.sort((a, b) => {
+                    return a.id - b.id;
+                  });  
+                setPokemons(ordenarLista);
+            }
+            
+        })  
         .catch(err => alert(err.message))
-    }
-    
-
-    useEffect(() =>{
-
-        pegaPokemons();
-
         
-    },[])
-
-    useEffect(() =>{
-
-      const novaLista = []
-      for (let item of listaPokemon){
-          axios
-          .get(`${item.url}`) 
-          .then((res) => {
-              novaLista.push(res.data);
-              if(novaLista.length === 20){
-                  const ordenarLista = novaLista.sort((a, b) => {
-                      return a.id - b.id;
-                    });  
-                  setPokemons(ordenarLista);
-              }
-             
-          })  
-          .catch(err => alert(err.message))
-          
-      }
+    }
 
       
   },[listaPokemon])
@@ -58,7 +58,9 @@ const GlobalState = (props) => {
       pokemons,
       setPokemons,
       pokedex,
-      setPokedex
+      setPokedex,
+      pokeDetails, 
+      setPokeDetails
     };
   
     return (
