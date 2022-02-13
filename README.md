@@ -9,8 +9,8 @@ Link do Surge: https://endurable-bushes.surge.sh/
 
 O que funciona:
 - Adicionar a pokédex
-- Item 2
+- Ver a pagina de detalhes
 
 O que não funciona: 
-- Item 3
+- Não tem paginção na home
 - Item 4
