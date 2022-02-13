@@ -13,18 +13,24 @@ import { useHistory } from "react-router-dom";
 import  Pokedex  from  "../../images/Pokedex.png";
 
 const PokedexPage = () => {
-    const { pokemons, setPokemons, pokedex, setPokedex } = useContext( GlobalEstadoContext );
+    const { pokemons, setPokemons, pokedex, setPokedex, setPokeDetails } = useContext( GlobalEstadoContext );
 
     const history = useHistory()
+
     const goHome = () => {
         history.push("/")
+    }
+
+    const goDetails = (pokeName) => {
+        history.push("/details")
+
+        const filtraPokelista = pokedex.find((item)=> item.name === pokeName )
+        setPokeDetails(filtraPokelista)
     }
 
     const rmPokedex = (pokeName) => {
 
         const filtraPokelista = pokedex.filter((item)=> item.name !== pokeName  )
-
-        // const novoPokedex = [...pokedex, filtraPokelista]
         setPokedex(filtraPokelista)
 
         const atualizarPokemons = pokedex.find((item)=> item.name === pokeName )
@@ -37,6 +43,8 @@ const PokedexPage = () => {
 
     
     }
+
+    
 
 
     return(
@@ -55,7 +63,7 @@ const PokedexPage = () => {
                                 </ImgContainer>
                                 <Botoes>
                                     <button onClick={()=> rmPokedex(pokemon.name)} > Deletar da Pokédex </button>
-                                    <button> Ver detalhes </button>
+                                    <button onClick={()=> goDetails(pokemon.name)}> Ver detalhes </button>
                                 </Botoes>
                             </CardList>
                     )

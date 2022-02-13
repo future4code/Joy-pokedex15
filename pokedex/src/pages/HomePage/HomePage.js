@@ -15,12 +15,20 @@ import  logoPokemon  from  "../../images/logoPokemon.png";
 
 const HomePage = () => {
 
-    const { pokemons, setPokemons, pokedex, setPokedex } = useContext( GlobalEstadoContext );
+    const { pokemons, setPokemons, pokedex, setPokedex, setPokeDetails } = useContext( GlobalEstadoContext );
 
     const history = useHistory();
 
     const goPokedex = () => {
         history.push(`/pokedex`)
+    }
+
+    const goDetails = (pokeName) => {
+        history.push("/details")
+
+        const filtraPokelista = pokemons.find((item)=> item.name === pokeName )
+        setPokeDetails(filtraPokelista)
+
     }
 
     const addPokedex = (pokeName) => {
@@ -48,7 +56,7 @@ const HomePage = () => {
                     </ImgContainer>
                     <Botoes>
                         <button onClick={()=> addPokedex(pokemon.name)} > Adicionar a Pokédex </button>
-                        <button> Ver detalhes </button>
+                        <button onClick={()=> goDetails(pokemon.name)}> Ver detalhes </button>
                     </Botoes>
                 </CardList>}
             </>
