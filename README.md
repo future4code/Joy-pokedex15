@@ -2,8 +2,8 @@
 
 Nome dos integrantes: 
 - Victor Fernando dos Santos
-- Pessoa 2
-- Pessoa 3
+- Jessica Soares Fernandes
+- Ademir Junior
 
 Link do Surge: https://endurable-bushes.surge.sh/
 
